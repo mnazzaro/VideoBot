@@ -1,0 +1,35 @@
+To-Do's:
+    1. Autonomous upload with API's [x]
+        - TikTok [✓]
+        - YouTube [x]
+        - IG Reels [x]
+    2. Overlap detection [✓]
+    3. Video improvements
+        - Slow down voice
+        - Pause after sentences?
+    4. Improve filtering mechanism
+    5. Cron job it and start churning [✓]
+
+To-Do's (June 16, 2023):
+    1. Finish Autonomous upload API's [x]
+        - YouTube [x]
+        - IG Reels [x]
+    2. Find another video source that will last 
+       at least another couple weeks or so [x]
+    3. Refactor
+        - Separate concerns:
+            - Video Production
+                - Audio
+                - Video
+                - Subtitles
+                - Effects
+            - Content
+                - Video Sources
+                - Text Sources
+                - Audio Sources
+                - Voices
+                - Idea Sources?
+            - QA and Analytics
+                - QA checks
+                - DB Expansion
+            - Pipelines and infrastructure
