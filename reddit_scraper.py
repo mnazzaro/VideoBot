@@ -5,7 +5,7 @@ from services.database import RedditSubmission
 from services.database.util import transaction
 
 secrets_dict = json.loads(
-    open('reddit_api/client_secrets.json', 'r').read())
+    open('/home/markn/Documents/RedditBot/reddit_api/client_secrets.json', 'r').read())
 reddit = praw.Reddit(
     client_id=secrets_dict['client_id'],
     client_secret=secrets_dict['client_secret'],

@@ -4,12 +4,12 @@ import shutil
 import argparse
 
 from video_utils.subtitles import generate_srt, annotate
-from video_utils.tts import generate_audio_brian
 from video_utils.video_processing import random_clip
 from reddit_scraper import filter
 from services.qa_checks.script_checks import run_script_qa_checks
 from services.qa_checks.video_checks import run_video_qa_checks
 from services.gpt import create_caption
+from services.tts import text_to_wav
 from upload_apis.tiktok_api import upload
 
 from moviepy.editor import AudioFileClip, CompositeAudioClip
@@ -24,15 +24,15 @@ def generate_videos (subreddit: str, root_fpath, sort_by: str = 'hot', period: O
             shutil.rmtree(path)
             os.mkdir(path)
         script = run_script_qa_checks(t_script)
-        audio = AudioFileClip(generate_audio_brian (script, os.path.join(path, 'tmp_audop.wav'), os.path.join(path, 'audio.wav')))
+        audio = AudioFileClip(text_to_wav (script, os.path.join(path, 'audio.wav')))
         srt = generate_srt(script, os.path.join(path, 'audio.wav'), os.path.join(path, 'subtitles.srt'))
-        vid = random_clip('mc_parkour.mp4', audio.duration)
+        vid = random_clip('/home/markn/Documents/RedditBot/mc_parkour.mp4', audio.duration)
         while run_video_qa_checks(vid):
             print ("Failed Video QA, resampling")
-            vid = random_clip('mc_parkour.mp4', audio.duration)
+            vid = random_clip('/home/markn/Documents/RedditBot/mc_parkour.mp4', audio.duration)
         comp_audio = CompositeAudioClip([audio])
         vid.audio = comp_audio
-        final = annotate(vid, srt, font='Cabin-BoldItalic', fontsize=75)
+        final = annotate(vid, srt, font='Agent-Orange', fontsize=60)
         final.write_videofile(os.path.join(path, f'{i}.mp4'))
         yield create_caption(script)
 
@@ -65,5 +65,5 @@ args = parser.parse_args()
 print (args.subreddit)
 
 for caption in generate_videos(args.subreddit, args.dir, args.sort_by, args.period,  1, int(args.min_upvotes)):
-    upload(os.path.join(args.dir, '0/0.mp4'), caption, 'chrome')
+    upload(os.path.join(args.dir, '0/0.mp4'), caption + ' #reddit #redditstories #funnyvideo #funnystory #storytime', 'chrome')
 

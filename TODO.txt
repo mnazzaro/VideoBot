@@ -11,13 +11,13 @@ To-Do's:
     5. Cron job it and start churning [✓]
 
 To-Do's (June 16, 2023):
-    1. Finish Autonomous upload API's [x]
+    1. Finish autonomous upload API's [x]
         - YouTube [x]
         - IG Reels [x]
     2. Find another video source that will last 
        at least another couple weeks or so [x]
-    3. Refactor
-        - Separate concerns:
+    3. Refactor [x]
+        - Separate concerns [x]
             - Video Production
                 - Audio
                 - Video
@@ -32,4 +32,31 @@ To-Do's (June 16, 2023):
             - QA and Analytics
                 - QA checks
                 - DB Expansion
-            - Pipelines and infrastructure
+            - Pipelines
+        - Check out zerorpc [x]
+    4. Make more automation scripts [x]
+        - Read trends
+        - Create accounts
+        - Aggregate db data
+    5. Pick a direction
+        - AI
+            - Generate more complex videos
+            - Do advanced analytics on videos- scoring, suggestions, etc.
+        - UI
+            - Editing tools
+            - AI content creation tools
+            - AI office products
+            - Creator dashboards
+        - Automation
+            - Just keep scaling on our own
+            - Automate more things
+                - Affiliate marketing
+                - Website creation and other software projects
+
+
+TODO (KISS: Keeping it super Simple):
+1. Google voice API [✓]
+2. Better subtitles
+3. QA Checks for script
+4. Dockerize
+                

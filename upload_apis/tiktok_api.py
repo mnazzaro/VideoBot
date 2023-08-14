@@ -5,7 +5,7 @@ import os
 
 
 def upload (video_path:str, description: str, browser: str):
-    upload_video(filename=video_path, cookies='cookies.txt', 
+    upload_video(filename=video_path, cookies='/home/markn/Documents/RedditBot/cookies.txt', 
                   description=description, browser=browser)
 
 if __name__=='__main__':

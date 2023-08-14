@@ -114,8 +114,8 @@ def generate_srt (script: str, audio_fpath: str, out_fpath: str, subtitle_len: f
 #             f.write(cur_cap)
 #     return out_fpath
 
-def annotate(clip, srt_fpath, txt_color='white', fontsize=100, font='Xolonium-Bold', position='center'):
-    generator = lambda txt: TextClip(txt, font=font, fontsize=fontsize, color=txt_color, method='caption')
+def annotate(clip, srt_fpath, txt_color='white', fontsize=60, font='Xolonium-Bold', position='center'):
+    generator = lambda txt: TextClip(txt, font=font, fontsize=fontsize, color=txt_color, method='caption', bg_color='black')
     subs = SubtitlesClip(srt_fpath, generator)
     return CompositeVideoClip([clip, subs.set_pos(('center', position))])
 
