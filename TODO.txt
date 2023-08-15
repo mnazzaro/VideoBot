@@ -56,7 +56,9 @@ To-Do's (June 16, 2023):
 
 TODO (KISS: Keeping it super Simple):
 1. Google voice API [✓]
-2. Better subtitles
-3. QA Checks for script
-4. Dockerize
+2. Better subtitles [✓]
+3. QA Checks for script [x]
+4. Add config file for all settings [x]
+    - Write settings to DB for QA
+5. Dockerize [x]
                 

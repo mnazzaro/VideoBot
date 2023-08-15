@@ -32,7 +32,7 @@ def generate_videos (subreddit: str, root_fpath, sort_by: str = 'hot', period: O
             vid = random_clip('/home/markn/Documents/RedditBot/mc_parkour.mp4', audio.duration)
         comp_audio = CompositeAudioClip([audio])
         vid.audio = comp_audio
-        final = annotate(vid, srt, font='Agent-Orange', fontsize=60)
+        final = annotate(vid, srt, font='Super-Boys', fontsize=80)
         final.write_videofile(os.path.join(path, f'{i}.mp4'))
         yield create_caption(script)
 

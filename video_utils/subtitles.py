@@ -77,7 +77,7 @@ def _generate_srt (word_times: List[Dict], caption_period: float) -> str:
 #         res.append(((cur_cap_start_time, vosk_out[word_index - 1]['end']), ' '.join(cur_cap_words)))
 #     return res
     
-def generate_srt (script: str, audio_fpath: str, out_fpath: str, subtitle_len: float=0.35):
+def generate_srt (script: str, audio_fpath: str, out_fpath: str, subtitle_len: float=0.5):
     model = Model(lang='en-us')
     wf = wave.open(audio_fpath, "rb")
     kr = KaldiRecognizer(model, wf.getframerate())
@@ -114,8 +114,8 @@ def generate_srt (script: str, audio_fpath: str, out_fpath: str, subtitle_len: f
 #             f.write(cur_cap)
 #     return out_fpath
 
-def annotate(clip, srt_fpath, txt_color='white', fontsize=60, font='Xolonium-Bold', position='center'):
-    generator = lambda txt: TextClip(txt, font=font, fontsize=fontsize, color=txt_color, method='caption', bg_color='black')
+def annotate(clip, srt_fpath, txt_color='white', fontsize=75, font='Xolonium-Bold', position='center'):
+    generator = lambda txt: TextClip(txt, font=font, fontsize=fontsize, color=txt_color, method='caption', stroke_color='black', stroke_width=5)
     subs = SubtitlesClip(srt_fpath, generator)
     return CompositeVideoClip([clip, subs.set_pos(('center', position))])
 
